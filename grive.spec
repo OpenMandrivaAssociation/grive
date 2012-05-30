@@ -6,7 +6,7 @@
 Summary:	An Open Source Linux Client for Google Drive
 Name:		grive
 Version:	0.0.4
-Release:	%{gitver}.1
+Release:	0.%{gitver}.1
 License:	GPLv2+
 Group:		Networking/File transfer
 URL:		http://match065.github.com/grive/
