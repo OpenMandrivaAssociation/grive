@@ -1,0 +1,11 @@
+diff -urN grive-0.2.0/libgrive/src/bfd/SymbolInfo.cc grive-0.2.0-patched/libgrive/src/bfd/SymbolInfo.cc
+--- grive-0.2.0/libgrive/src/bfd/SymbolInfo.cc	2012-07-08 02:43:18.000000000 +1100
++++ grive-0.2.0-patched/libgrive/src/bfd/SymbolInfo.cc	2012-10-23 00:17:09.053149528 +1100
+@@ -22,6 +22,7 @@
+ 
+ #include <vector>
+ 
++#define PACKAGE
+ #include <bfd.h>
+ #include <execinfo.h>
+ #include <dlfcn.h>

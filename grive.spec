@@ -1,30 +1,41 @@
-%define gitver	07553e5
+# Looks like upstream switched to static build for 0.2.0
+# Keep subpackages in spec in case upstream starts to provide them again
+%define build_shared 0
+
 %define major	0
 %define libname	%mklibname %{name} %{major}
 %define devname	%mklibname -d %{name}
 
 Summary:	An Open Source Linux Client for Google Drive
 Name:		grive
-Version:	0.0.4
-Release:	0.%{gitver}.1
+Version:	0.2.0
+Release:	1
 License:	GPLv2+
 Group:		Networking/File transfer
-URL:		http://match065.github.com/grive/
-Source0:	match065-%{name}-%{gitver}.tar.gz
+URL:		https://github.com/Grive/
+# Repack from git
+Source0:	%{name}-%{version}.tar.xz
+Patch0:		grive-0.2.0-bfd.patch
 
 BuildRequires:	cmake
 BuildRequires:	binutils-devel
 BuildRequires:	boost-devel
+BuildRequires:	libgcrypt-devel
 BuildRequires:	pkgconfig(expat)
 BuildRequires:	pkgconfig(json)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(openssl)
+%if ! %{build_shared}
+Obsoletes:	%{libname} < %{version}-%{release}
+Obsoletes:	%{devname} < %{version}-%{release}
+%endif
 
 %description
-The purpose of this project is to provide an independent implementation of 
-Google Drive client. It uses the Google Document List API to talk to the 
+The purpose of this project is to provide an independent implementation of
+Google Drive client. It uses the Google Document List API to talk to the
 servers in Google. The code is written in standard C++.
 
+%if %{build_shared}
 %package -n %{libname}
 Summary:	Shared library for %{name}
 Group:		System/Libraries
@@ -41,10 +52,11 @@ Provides:	%{name}-devel = %{version}-%{release}
 %description -n %{devname}
 This package provides the necessary development library and include
 files to allow you to develop with %{name}.
-
+%endif
 
 %prep
-%setup -qn match065-%{name}-%{gitver}
+%setup -q
+%patch0 -p1
 
 %build
 %cmake
@@ -56,7 +68,9 @@ files to allow you to develop with %{name}.
 %files
 %doc COPYING README
 %{_bindir}/%{name}
+%{_mandir}/man1/%{name}.1*
 
+%if %{build_shared}
 %files -n %{libname}
 %{_libdir}/libgrive.so.%{major}*
 
@@ -64,4 +78,5 @@ files to allow you to develop with %{name}.
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*
 %{_libdir}/libgrive.so
+%endif
 
