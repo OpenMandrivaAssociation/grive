@@ -12,7 +12,7 @@ Version:	0.2.0
 Release:	1
 License:	GPLv2+
 Group:		Networking/File transfer
-URL:		https://github.com/Grive/
+Url:		https://github.com/Grive/
 # Repack from git
 Source0:	%{name}-%{version}.tar.xz
 Patch0:		grive-0.2.0-bfd.patch
@@ -20,10 +20,10 @@ Patch0:		grive-0.2.0-bfd.patch
 BuildRequires:	cmake
 BuildRequires:	binutils-devel
 BuildRequires:	boost-devel
-BuildRequires:	libgcrypt-devel
 BuildRequires:	pkgconfig(expat)
 BuildRequires:	pkgconfig(json)
 BuildRequires:	pkgconfig(libcurl)
+BuildRequires:	pkgconfig(libgcrypt)
 BuildRequires:	pkgconfig(openssl)
 %if ! %{build_shared}
 Obsoletes:	%{libname} < %{version}-%{release}
@@ -56,7 +56,7 @@ files to allow you to develop with %{name}.
 
 %prep
 %setup -q
-%patch0 -p1
+%apply_patches
 
 %build
 %cmake
