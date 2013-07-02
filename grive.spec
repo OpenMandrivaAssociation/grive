@@ -9,7 +9,7 @@
 Summary:	An Open Source Linux Client for Google Drive
 Name:		grive
 Version:	0.2.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/Grive/
@@ -21,7 +21,7 @@ BuildRequires:	cmake
 BuildRequires:	binutils-devel
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(expat)
-BuildRequires:	pkgconfig(json)
+BuildRequires:	pkgconfig(json-c)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libgcrypt)
 BuildRequires:	pkgconfig(openssl)
@@ -59,6 +59,7 @@ files to allow you to develop with %{name}.
 %apply_patches
 
 %build
+export CXXFLAGS="$CXXFLAGS -ljson-c"
 %cmake
 %make
 
