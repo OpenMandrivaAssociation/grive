@@ -14,7 +14,7 @@ License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/Grive/
 # Repack from git
-Source0:	%{name}-%{version}.tar.x
+Source0:	%{name}-%{version}.tar.xz
 Source100:	grive.rpmlintrc
 Patch0:		grive-0.2.0-bfd.patch
 Patch1:		grive-0.3.0-doc.patch
