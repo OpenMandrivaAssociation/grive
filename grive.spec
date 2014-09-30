@@ -18,7 +18,7 @@ Source0:	%{name}-%{version}.tar.xz
 Source100:	grive.rpmlintrc
 Patch0:		grive-0.2.0-bfd.patch
 Patch1:		grive-0.3.0-doc.patch
-
+Patch2:		grive-0.3.0-compile.patch
 BuildRequires:	cmake
 BuildRequires:	binutils-devel
 BuildRequires:	boost-devel
