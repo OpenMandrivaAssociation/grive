@@ -8,8 +8,8 @@
 
 Summary:	An Open Source Linux Client for Google Drive
 Name:		grive
-Version:	0.2.0
-Release:	9
+Version:	0.3.0
+Release:	0.1
 License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/Grive/
@@ -17,6 +17,7 @@ Url:		https://github.com/Grive/
 Source0:	%{name}-%{version}.tar.xz
 Source100:	grive.rpmlintrc
 Patch0:		grive-0.2.0-bfd.patch
+Patch1:		grive-0.3.0-doc.patch
 
 BuildRequires:	cmake
 BuildRequires:	binutils-devel
@@ -58,9 +59,13 @@ files to allow you to develop with %{name}.
 %prep
 %setup -q
 %apply_patches
+sed -i 's|json/json.h|json-c/json.h|g' cmake/Modules/FindJSONC.cmake
+sed -i 's|json|json-c json|g' cmake/Modules/FindJSONC.cmake
+sed -i 's|json/json_tokener.h|json-c/json_tokener.h|g' libgrive/src/protocol/Json.cc
+sed -i 's|json/linkhash.h|json-c/linkhash.h|g' libgrive/src/protocol/Json.cc
 
 %build
-export CXXFLAGS="$CXXFLAGS -ljson-c"
+export LDFLAGS="$LDFLAGS -ljson-c"
 %cmake
 %make
 
@@ -69,6 +74,7 @@ export CXXFLAGS="$CXXFLAGS -ljson-c"
 
 %files
 %doc COPYING README
+%{_bindir}/bgrive
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 

@@ -1,0 +1,7 @@
+--- grive-0.3.0/bgrive/CMakeLists.txt.orig	2014-09-30 06:46:49.209344145 +0100
++++ grive-0.3.0/bgrive/CMakeLists.txt	2014-09-30 06:46:55.840343656 +0100
+@@ -40,4 +40,3 @@
+ )
+ 
+ install(TARGETS bgrive_executable RUNTIME DESTINATION bin)
+-install(FILES doc/grive.1 DESTINATION share/man/man1 )
