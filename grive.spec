@@ -28,6 +28,7 @@ BuildRequires:	pkgconfig(json-c)
 BuildRequires:	pkgconfig(libcurl)
 BuildRequires:	pkgconfig(libgcrypt)
 BuildRequires:	pkgconfig(openssl)
+BuildRequires:	pkgconfig(yajl)
 %if ! %{build_shared}
 Obsoletes:	%{libname} < %{version}-%{release}
 Obsoletes:	%{devname} < %{version}-%{release}
