@@ -14,7 +14,7 @@ License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/Grive/
 # Repack from git
-Source0:	%{name}-%{version}.tar.xz
+Source0:	%{name}-%{version}.tar.x
 Source100:	grive.rpmlintrc
 Patch0:		grive-0.2.0-bfd.patch
 Patch1:		grive-0.3.0-doc.patch
@@ -22,6 +22,7 @@ Patch1:		grive-0.3.0-doc.patch
 BuildRequires:	cmake
 BuildRequires:	binutils-devel
 BuildRequires:	boost-devel
+BuildRequires:  qt4-devel
 BuildRequires:	pkgconfig(expat)
 BuildRequires:	pkgconfig(json-c)
 BuildRequires:	pkgconfig(libcurl)
