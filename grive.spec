@@ -16,9 +16,9 @@ Url:		https://github.com/vitalif/grive2/
 # Repack from git
 Source0:	https://github.com/vitalif/grive2/archive/v0.5.0/grive2-0.5.0.tar.gz
 Source100:	grive.rpmlintrc
-Patch0:		grive-0.2.0-bfd.patch
-Patch1:		grive-0.3.0-doc.patch
-Patch2:		grive-0.3.0-compile.patch
+#Patch0:		grive-0.2.0-bfd.patch
+#Patch1:		grive-0.3.0-doc.patch
+#Patch2:		grive-0.3.0-compile.patch
 BuildRequires:	cmake
 BuildRequires:	binutils-devel
 BuildRequires:	boost-devel
