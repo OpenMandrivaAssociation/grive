@@ -22,7 +22,6 @@ Source100:	grive.rpmlintrc
 BuildRequires:	cmake
 BuildRequires:	binutils-devel
 BuildRequires:	boost-devel
-#BuildRequires:  qt4-devel
 BuildRequires:	pkgconfig(expat)
 BuildRequires:	pkgconfig(json-c)
 BuildRequires:	pkgconfig(libcurl)
@@ -61,13 +60,10 @@ files to allow you to develop with %{name}.
 %prep
 %setup -q
 %apply_patches
-#sed -i 's|json/json.h|json-c/json.h|g' cmake/Modules/FindJSONC.cmake
-#sed -i 's|json|json-c json|g' cmake/Modules/FindJSONC.cmake
-#sed -i 's|json/json_tokener.h|json-c/json_tokener.h|g' libgrive/src/protocol/Json.cc
-#sed -i 's|json/linkhash.h|json-c/linkhash.h|g' libgrive/src/protocol/Json.cc
+
 
 %build
-#export LDFLAGS="$LDFLAGS -ljson-c"
+
 %cmake
 %make
 
@@ -75,18 +71,18 @@ files to allow you to develop with %{name}.
 %makeinstall_std -C build
 
 %files
-%doc COPYING README
-%{_bindir}/bgrive
-%{_bindir}/%{name}
-%{_mandir}/man1/%{name}.1*
+%doc COPYING
+#{_bindir}/bgrive
+#{_bindir}/%{name}
+#{_mandir}/man1/%{name}.1*
 
 %if %{build_shared}
 %files -n %{libname}
 %{_libdir}/libgrive.so.%{major}*
 
 %files -n %{devname}
-%dir %{_includedir}/%{name}
-%{_includedir}/%{name}/*
-%{_libdir}/libgrive.so
+#dir %{_includedir}/%{name}
+#{_includedir}/%{name}/*
+#{_libdir}/libgrive.so
 %endif
 
