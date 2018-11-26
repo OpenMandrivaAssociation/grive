@@ -1,3 +1,4 @@
+%global optflags %{optflags} -Wno-c++11-narrowing
 %define major	0
 %define libname	%mklibname %{name} %{major}
 
