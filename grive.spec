@@ -7,14 +7,14 @@
 %define devname	%mklibname -d %{name}
 
 Summary:	An Open Source Linux Client for Google Drive
-Name:		grive
-Version:	0.3.0
-Release:	7
+Name:		grive2
+Version:	0.5.0
+Release:	1
 License:	GPLv2+
 Group:		Networking/File transfer
-Url:		https://github.com/Grive/
+Url:		https://github.com/vitalif/grive2/
 # Repack from git
-Source0:	%{name}-%{version}.tar.xz
+Source0:	https://github.com/vitalif/grive2/archive/v0.5.0/grive2-0.5.0.tar.gz
 Source100:	grive.rpmlintrc
 Patch0:		grive-0.2.0-bfd.patch
 Patch1:		grive-0.3.0-doc.patch
@@ -22,7 +22,7 @@ Patch2:		grive-0.3.0-compile.patch
 BuildRequires:	cmake
 BuildRequires:	binutils-devel
 BuildRequires:	boost-devel
-BuildRequires:  qt4-devel
+#BuildRequires:  qt4-devel
 BuildRequires:	pkgconfig(expat)
 BuildRequires:	pkgconfig(json-c)
 BuildRequires:	pkgconfig(libcurl)
@@ -61,13 +61,13 @@ files to allow you to develop with %{name}.
 %prep
 %setup -q
 %apply_patches
-sed -i 's|json/json.h|json-c/json.h|g' cmake/Modules/FindJSONC.cmake
-sed -i 's|json|json-c json|g' cmake/Modules/FindJSONC.cmake
-sed -i 's|json/json_tokener.h|json-c/json_tokener.h|g' libgrive/src/protocol/Json.cc
-sed -i 's|json/linkhash.h|json-c/linkhash.h|g' libgrive/src/protocol/Json.cc
+#sed -i 's|json/json.h|json-c/json.h|g' cmake/Modules/FindJSONC.cmake
+#sed -i 's|json|json-c json|g' cmake/Modules/FindJSONC.cmake
+#sed -i 's|json/json_tokener.h|json-c/json_tokener.h|g' libgrive/src/protocol/Json.cc
+#sed -i 's|json/linkhash.h|json-c/linkhash.h|g' libgrive/src/protocol/Json.cc
 
 %build
-export LDFLAGS="$LDFLAGS -ljson-c"
+#export LDFLAGS="$LDFLAGS -ljson-c"
 %cmake
 %make
 
