@@ -28,15 +28,6 @@ The purpose of this project is to provide an independent implementation of
 Google Drive client. It uses the Google Document List API to talk to the
 servers in Google. The code is written in standard C++.
 
-%if %{build_shared}
-%package -n %{libname}
-Summary:	Shared library for %{name}
-Group:		System/Libraries
-
-%description -n %{libname}
-This package contains the shared library for %{name}.
-
-
 %prep
 %setup -q
 %apply_patches
