@@ -72,9 +72,9 @@ files to allow you to develop with %{name}.
 
 %files
 %doc COPYING
-#{_bindir}/bgrive
-#{_bindir}/%{name}
-#{_mandir}/man1/%{name}.1*
+%{_bindir}/grive
+%{_libdir}/libgrive.so.*
+%{_mandir}/man1/%{name}.1*
 
 %if %{build_shared}
 %files -n %{libname}
@@ -83,6 +83,6 @@ files to allow you to develop with %{name}.
 %files -n %{devname}
 #dir %{_includedir}/%{name}
 #{_includedir}/%{name}/*
-#{_libdir}/libgrive.so
+%{_libdir}/libgrive.so
 %endif
 
