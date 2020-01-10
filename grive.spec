@@ -29,7 +29,7 @@ servers in Google. The code is written in standard C++.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 
 %build
