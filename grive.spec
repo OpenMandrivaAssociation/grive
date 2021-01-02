@@ -45,3 +45,7 @@ servers in Google. The code is written in standard C++.
 %doc COPYING README.md
 %{_bindir}/grive
 %{_mandir}/man1/*
+/usr/lib/grive/grive-sync.sh
+/usr/lib/systemd/user/grive-changes@.service
+/usr/lib/systemd/user/grive-timer@.service
+/usr/lib/systemd/user/grive-timer@.timer
