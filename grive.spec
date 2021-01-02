@@ -9,7 +9,7 @@ Release:	1
 License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/vitalif/grive2/
-Source0:	https://github.com/vitalif/grive2/archive/v0.5.0/grive2-0.5.0.tar.gz
+Source0:	https://github.com/vitalif/grive2/archive/v%{version}/grive2-%{version}.tar.gz
 Source100:	grive.rpmlintrc
 
 BuildRequires:	cmake
