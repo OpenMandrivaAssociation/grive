@@ -11,6 +11,7 @@ Group:		Networking/File transfer
 Url:		https://github.com/vitalif/grive2/
 Source0:	https://github.com/vitalif/grive2/archive/v%{version}/grive2-%{version}.tar.gz
 Source100:	grive.rpmlintrc
+Patch0:     https://patch-diff.githubusercontent.com/raw/vitalif/grive2/pull/299.patch
 
 BuildRequires:	cmake
 BuildRequires:	binutils-devel
@@ -31,7 +32,6 @@ servers in Google. The code is written in standard C++.
 %setup -q
 %autopatch -p1
 
-
 %build
 
 %cmake
@@ -44,8 +44,3 @@ servers in Google. The code is written in standard C++.
 %doc COPYING README.md
 %{_bindir}/grive
 %{_mandir}/man1/*
-
-
-
-
-
