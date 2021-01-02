@@ -4,8 +4,8 @@
 
 Summary:	An Open Source Linux Client for Google Drive
 Name:		grive2
-Version:	0.5.0
-Release:	2
+Version:	0.5.1
+Release:	1
 License:	GPLv2+
 Group:		Networking/File transfer
 Url:		https://github.com/vitalif/grive2/
@@ -35,10 +35,10 @@ servers in Google. The code is written in standard C++.
 %build
 
 %cmake
-%make
+%make_build
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 
 %files
 %doc COPYING README.md
